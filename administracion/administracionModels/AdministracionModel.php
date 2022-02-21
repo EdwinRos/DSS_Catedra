@@ -23,9 +23,21 @@ class AdministracionModel
         return $validationLog;
     }
 
+
     public function obtenerCancionesActualesSemana()
     {
        return scandir("../../upploads/Lista/listaSemana/");
+    }
+
+
+    public function eliminarCancion($direccion,$cancion){
+        $respuesta = '';    
+        if(!unlink($direccion.$cancion)){
+            $respuesta = 'No se pudo eliminar el archivo'.$direccion . $cancion;
+        }else{
+            $respuesta = 'El archivo ha sido eliminado' ;
+        }
+        return $respuesta;
     }
 
 

@@ -37,9 +37,23 @@
             <?php
               $administracionCancionesActuales = new ListaSemanaView();
               $administracionCancionesActuales->cargarCanciones();
+              
+            // si se elimina una cancion
+
+              if(isset($_GET['lista'])){
+                  $eliminar = new ListaSemanaView();
+                  $eliminar->eliminarDelaLista();
+              }
             ?>
         </div>
     </div>
 </div>
+<script>
+ const closeAlert= ()=>{
+     document.getElementById('msj').innerHTML = "";
+ }
+
+</script>
+
 </body>
 </html>
