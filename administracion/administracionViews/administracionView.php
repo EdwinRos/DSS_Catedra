@@ -1,7 +1,7 @@
 <?php
 require_once '../administracionModels/AdministracionModel.php';
 
-class ListaSemanaView extends AdministracionModel
+class administracionView extends AdministracionModel
 {
     public function upload()
     {
@@ -17,7 +17,7 @@ class ListaSemanaView extends AdministracionModel
     {
         $results = $this->obtenerCancionesActualesSemana();
         echo "<ul class='list-group'>";
-        echo "<form method='POST' action='administrarListaSemana.php'>";
+        echo "<form method='POST' action='homeAdministracion.php'>";
         if(count($results) >2 ){
             for ($i =2 ; $i < count($results) ; $i++) {
                 echo "<li class='list-group-item pt-3 pb-5'>$results[$i]</P> <input type='hidden' style='border: none' name='cancionEliminar' readonly value='$results[$i]'/><input type='submit' name='lista' class='btn btn-danger  float-end' value='Eliminar de la lista'/></li>";

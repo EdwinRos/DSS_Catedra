@@ -1,5 +1,5 @@
 <?php
-include 'ListaSemanaView.php';
+include 'administracionView.php';
 ?>
 <!doctype html>
 <html lang="es">
@@ -20,14 +20,14 @@ include 'ListaSemanaView.php';
         <hr>
         <div class="col-md">
             <h1 class="display-4">Subir una cancion a la lista</h1>
-            <form method="post" action="administrarListaSemana.php" enctype="multipart/form-data">
+            <form method="post" action="homeAdministracion.php" enctype="multipart/form-data">
                 <label for="cancion" class="col-sm-2 control-label">Seleccionar una cancion</label>
                 <input type="file" class="form-control" name="cancion" id="cancion" required/>
                 <input type="submit" class="btn btn-primary mt-3" value="subir"/>
             </form>
             <?php
             if (isset($_FILES['cancion']['name'])) {
-                $administracionObj = new ListaSemanaView();
+                $administracionObj = new administracionView();
                 $administracionObj->upload();
             }
             ?>
@@ -37,11 +37,11 @@ include 'ListaSemanaView.php';
             <p class="lead">Se detalla la lista actual de canciones de la semana</p>
             <?php
             if (isset($_POST['cancionEliminar'])) {
-                $eliminar = new ListaSemanaView();
+                $eliminar = new administracionView();
                 $eliminar->eliminarDelaLista();
             }
 
-            $administracionCancionesActuales = new ListaSemanaView();
+            $administracionCancionesActuales = new administracionView();
             $administracionCancionesActuales->cargarCanciones();
             ?>
         </div>
