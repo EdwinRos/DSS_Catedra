@@ -8,12 +8,13 @@ include 'administracionView.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <?php include '../administracioIncludes/bootstrap.php' ?>
     <title>Lista de la semana radio udb</title>
 </head>
 <body>
+<?php
+include '../administracioIncludes/navbar.php';
+?>
 <div class="container">
     <div class="row">
         <h1 class="display-4">Lista de la semana - radio udb</h1>
@@ -42,17 +43,10 @@ include 'administracionView.php';
             }
 
             $administracionCancionesActuales = new administracionView();
-            $administracionCancionesActuales->cargarCanciones();
+            $administracionCancionesActuales->cargarCanciones('listaSemana/');
             ?>
         </div>
     </div>
 </div>
-<script>
-    const closeAlert = () => {
-        document.getElementById('msj').innerHTML = "";
-    }
-
-</script>
-
 </body>
 </html>

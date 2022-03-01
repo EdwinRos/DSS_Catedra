@@ -1,14 +1,44 @@
 <?php
-class AdministracionModel
+include 'DBC.php';
+
+class AdministracionModel extends DBC
 {
+
+    public function iniciarSesion($usuario, $password){
+        try {
+            //code...
+        $sql = "select * from usuario where usuario.usuario = ? and usuario.password = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$usuario, $password]);
+        $usuario = $stmt->fetch();
+        
+        if($usuario != null){
+            session_start();
+            $_SESSION['usuario'] = $usuario['nombre'] .' '. $usuario['apellido'];
+            header('LOCATION: ../index.php');
+
+        }else{
+            return array("error" => "Credenciales incorrectas. ");
+        }
+
+        } catch (\Throwable $th) {
+            //throw $th;
+            return array("error" => $th);
+        }
+
+    }
+
     public function subidaCancion()
     {
         $target_dir = '../../upploads/Lista/listaSemana/';
         $targetFile = $target_dir . basename($_FILES['cancion']['name']);
+        $cancionTipe = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
         $validationLog = array();
 
 
         if (file_exists($targetFile)) $validationLog[] = "La cancion ya existe ";
+
+        if($cancionTipe != 'mp3' && $cancionTipe != 'flac')  $validationLog[] = "Formato no permitido, solo se aceptan archivos .mp3 y .flac";
 
         if (count($validationLog) > 0) {
             //se detecto un problema
@@ -24,14 +54,14 @@ class AdministracionModel
     }
 
 
-    public function obtenerCancionesActualesSemana()
+    public function obtenerCancionesActualesSemana($lista)
     {
-       return scandir("../../upploads/Lista/listaSemana/");
+       return scandir("../../upploads/Lista/".$lista);
     }
 
 
     public function eliminarCancion($direccion,$cancion){
-        $respuesta = '';    
+        $respuesta = '';
         if(!unlink($direccion.$cancion)){
             $respuesta = 'No se pudo eliminar el archivo'.$direccion . $cancion;
         }else{

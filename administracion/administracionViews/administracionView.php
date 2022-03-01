@@ -13,34 +13,27 @@ class administracionView extends AdministracionModel
         echo "</div>";
     }
 
-    public function cargarCanciones()
+    public function cargarCanciones($lista)
     {
-        $results = $this->obtenerCancionesActualesSemana();
+        $results = $this->obtenerCancionesActualesSemana($lista);
         echo "<ul class='list-group'>";
-        echo "<form method='POST' action='homeAdministracion.php'>";
         if(count($results) >2 ){
             for ($i =2 ; $i < count($results) ; $i++) {
-                echo "<li class='list-group-item pt-3 pb-5'>$results[$i]</P> <input type='hidden' style='border: none' name='cancionEliminar' readonly value='$results[$i]'/><input type='submit' name='lista' class='btn btn-danger  float-end' value='Eliminar de la lista'/></li>";
+                echo "<li class='list-group-item pt-3 pb-5'>$results[$i] <a href='confirmaciones.php?lista=semana&&cancion=$results[$i]' class='btn btn-outline-danger'>Eliminar</a> </li>";
             }
         }else{
             echo "<li class='list-group-item'>Aun no se ha subido una cancion!</li>";
         }
-        echo "</form>";
         echo "</ul>";
     }
-    public function eliminarDelaLista()
+    
+
+    public function identificarse()
     {
-        $listaAeliminar = ($_POST['lista'] == 'Eliminar de la lista')? '../../upploads/Lista/listaSemana/' : '../../upploads/Lista/topSemana/';
-        $cancion = $_POST['cancionEliminar'];
-        $results = $this->eliminarCancion($listaAeliminar, $cancion);
-        echo "<div id='msj'>";
-        echo "<div class='alert alert-success mt-3'>";
-        echo $results;
-        echo "<button class='btn btn-outline-success float-end' onclick='closeAlert()'>Cerrar</button>";
-        echo "</div>";
-        echo "</div>";
-
-
+      $result = $this->iniciarSesion($_POST['usuario'], sha1($_POST['password']));
+      echo "<div class='alert alert-danger mt-3'>";
+      echo $result['error'];
+      echo "</div>";
     }
 
 }
