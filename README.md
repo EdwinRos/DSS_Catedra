@@ -4,9 +4,9 @@ proyecto de catedra para la materia de DSS
 
 ## Contenidos
 
-* [Informacion general] (#Informacion-general)
-* [Integrantes] (#Integrantes)
-* [Tegnologias] (#Tegnologias)
+* [Informacion general](#Informacion-general)
+* [Integrantes](#Integrantes)
+* [Tegnologias](#Tegnologias)
 
 ## Informacion-general
 
@@ -24,6 +24,6 @@ Equipo que conforma este proyecto
 
 ## Tegnologias
 
-[![PHP](https://img.shields.io/npm/v/github-buttons)](https://www.php.net/github-buttons)
-[![Bootstrap](https://img.shields.io/npm/v/github-buttons)](https://getbootstrap.com/github-buttons)
-[![phpmyadmin](https://img.shields.io/npm/v/github-buttons)](https://www.phpmyadmin.net/github-buttons)
+[![PHP](https://img.shields.io/PHP/v/github-buttons)](https://www.php.net/github-buttons)
+[![Bootstrap](https://img.shields.io/Bootstrap/v/github-buttons)](https://getbootstrap.com/github-buttons)
+[![phpmyadmin](https://img.shields.io/phpMyadmin/v/github-buttons)](https://www.phpmyadmin.net/github-buttons)
