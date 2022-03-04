@@ -23,7 +23,9 @@ Equipo que conforma este proyecto
 * Carlos Javier Castro Arevalo CA200764
 
 ## Tegnologias
-
-[![PHP](https://img.shields.io/PHP/v/github-buttons)](https://www.php.net/github-buttons)
-[![Bootstrap](https://img.shields.io/Bootstrap/v/github-buttons)](https://getbootstrap.com/github-buttons)
-[![phpmyadmin](https://img.shields.io/phpMyadmin/v/github-buttons)](https://www.phpmyadmin.net/github-buttons)
+	https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
+  https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white
+  https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+  https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+  https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
+  https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
