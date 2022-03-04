@@ -23,9 +23,17 @@ Equipo que conforma este proyecto
 * Carlos Javier Castro Arevalo CA200764
 
 ## Tegnologias
-	https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white
-  https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white
-  https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-  https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
-  https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
-  https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white
+<p align="center">
+    <a href="https://www.php.net/" alt="Contributors">
+        <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" /></a>
+    <a href="https://www.w3schools.com/Css/" alt="Backers on Open Collective">
+        <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white" /></a>
+    <a href="https://getbootstrap.com/" alt="Sponsors on Open Collective">
+        <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" /></a>
+    <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" alt="Activity">
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /></a>
+    <a href="https://www.javascript.com/">
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="build status"></a>
+    <a href="https://www.mysql.com/">
+        <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" alt="build status"></a>
+</p>
