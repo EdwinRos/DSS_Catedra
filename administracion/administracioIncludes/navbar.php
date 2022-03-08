@@ -17,11 +17,11 @@ if(!isset($_SESSION['usuario']))  header('LOCATION: ../index.php');
             Acciones
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">Canciones de la semana</a></li>
+            <li><a class="dropdown-item" href="homeAdministracion.php">Canciones de la semana</a></li>
             <li><a class="dropdown-item" href="#">Top Canciones</a></li>
             <li><a class="dropdown-item" href="#">Eventos</a></li>
             <li><a class="dropdown-item" href="#">Biografias</a></li>
-            <li><a class="dropdown-item" href="#">Programas</a></li>
+            <li><a class="dropdown-item" href="programas.php">Programas</a></li>
           </ul>
         </li>
       </ul>
