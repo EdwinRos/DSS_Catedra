@@ -68,7 +68,7 @@ class AdministracionModel extends DBC
         }
         return $respuesta;
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
     protected function publicarProgramaBD($titulo, $diasEmision, $horaEmision, $dj, $url)
     {
         try {
@@ -98,6 +98,9 @@ class AdministracionModel extends DBC
         }
     }
 
+
+    
+
     public function eliminarProgramaRadio($id){
        $sql = "DELETE FROM `programa` WHERE programa.id = ? ";
        $stmt = $this->connect()->prepare($sql);
@@ -120,4 +123,41 @@ class AdministracionModel extends DBC
             return array(0 => $th);
         }
     }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function insertarBio($nombreArtista, $urlImagenBio, $biografia)
+    {
+        try {
+            $sql = "INSERT INTO `biografia`(`nombre_artista`, `url_imagen`, `biografia`) VALUES (?,?,?)";
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$nombreArtista, $urlImagenBio, $biografia]);
+            return "Se agrego una nueva Biografia";
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
+        public function eliminarBio($id){
+            $sql = "DELETE FROM `biografia` WHERE biografia.id = ? ";
+            $borrar = $this->connect()->query($sql);
+            $borrar->execute([$id]);
+            if($borrar){
+                return "La Biografia se ha eliminado";
+            }else{
+                return "Error al Eliminar la Biografia";
+            }
+
+        }
+
+        public function listaBio(){
+            try {
+                $sql = "SELECT * FROM biografia";
+                $mostrar = $this->connect()->query($sql);
+                return $mostrar->fetchAll();
+            } catch (\Throwable $th) {
+                return array(0 => $th);
+            }
+        }
+
 }
