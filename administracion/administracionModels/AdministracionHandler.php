@@ -8,7 +8,7 @@ class AdministracionHandler extends AdministracionModel
 {
     public function eliminarDelaLista()
     {
-        $listaAeliminar = ($_GET['lista'] == 'semana')? '../../upploads/Lista/listaSemana/' : '../../upploads/Lista/topSemana/';
+        $listaAeliminar = ($_GET['lista'] == 'listaSemana/')? '../../upploads/Lista/listaSemana/' : '../../upploads/Lista/topSemana/';
         $cancion = $_GET['cancion'];
         $results = $this->eliminarCancion($listaAeliminar, $cancion);
         echo "<div id='msj'>";

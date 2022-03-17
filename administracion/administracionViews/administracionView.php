@@ -19,7 +19,7 @@ class administracionView extends AdministracionModel
         echo "<ul class='list-group'>";
         if (count($results) > 2) {
             for ($i = 2; $i < count($results); $i++) {
-                echo "<li class='list-group-item pt-3 pb-5'>$results[$i] <a href='confirmaciones.php?lista=semana&&cancion=$results[$i]' class='btn btn-outline-danger float-end'>Eliminar</a> </li>";
+                echo "<li class='list-group-item pt-3 pb-5'>$results[$i] <a href='confirmaciones.php?lista=$lista&&cancion=$results[$i]' class='btn btn-outline-info float-end'>Detalles</a> </li>";
             }
         } else {
             echo "<li class='list-group-item'>Aun no se ha subido una cancion!</li>";

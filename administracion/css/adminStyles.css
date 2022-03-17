@@ -1,0 +1,39 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgb(181,174,238);
+background: linear-gradient(0deg, rgba(181,174,238,1) 0%, rgba(221,232,245,1) 100%);
+}
+
+.imgAlbum{
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+svg{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+svg:hover{
+   fill: aliceblue;
+   transition: 0.3s;
+   cursor: pointer;
+}
+
+
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.albumRotate{
+ animation: spin 2s infinite;
+}

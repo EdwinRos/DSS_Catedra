@@ -38,11 +38,6 @@ include 'administracionView.php';
                 <h1 class="display-4"> lista actual de la semana</h1>
                 <p class="lead">Se detalla la lista actual de canciones de la semana</p>
                 <?php
-                //   if (isset($_POST['cancionEliminar'])) {
-                //     $eliminar = new administracionView();
-                //  $eliminar->eliminarDelaLista();
-                // }
-
                 $administracionCancionesActuales = new administracionView();
                 $administracionCancionesActuales->cargarCanciones('listaSemana/');
                 ?>
