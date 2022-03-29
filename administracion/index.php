@@ -6,3 +6,6 @@ if(isset($_SESSION['usuario'])){
 }else{
     header('Location: administracionViews/login.php');
 }
+
+
+//preubas
