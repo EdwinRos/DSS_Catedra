@@ -68,7 +68,7 @@ class AdministracionModel extends DBC
         }
         return $respuesta;
     }
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
     protected function publicarProgramaBD($titulo, $diasEmision, $horaEmision, $dj, $url)
     {
         try {
@@ -99,17 +99,18 @@ class AdministracionModel extends DBC
     }
 
 
-    
 
-    public function eliminarProgramaRadio($id){
-       $sql = "DELETE FROM `programa` WHERE programa.id = ? ";
-       $stmt = $this->connect()->prepare($sql);
-       $stmt->execute([$id]);
-       if($stmt){
-           return "Programa eliminado";
-       }else{
-           return "fallido";
-       }
+
+    public function eliminarProgramaRadio($id)
+    {
+        $sql = "DELETE FROM `programa` WHERE programa.id = ? ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+        if ($stmt) {
+            return "Programa eliminado";
+        } else {
+            return "fallido";
+        }
     }
 
 
@@ -124,8 +125,9 @@ class AdministracionModel extends DBC
         }
     }
 
+    
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function insertarBio($nombreArtista, $urlImagenBio, $biografia)
     {
         try {
@@ -138,26 +140,96 @@ class AdministracionModel extends DBC
         }
     }
 
-        public function eliminarBio($id){
-            $sql = "DELETE FROM `biografia` WHERE biografia.id = ? ";
-            $borrar = $this->connect()->query($sql);
-            $borrar->execute([$id]);
-            if($borrar){
-                return "La Biografia se ha eliminado";
-            }else{
-                return "Error al Eliminar la Biografia";
-            }
+    public function eliminarBio($id)
+    {
+        $sql = "DELETE FROM `biografia` WHERE biografia.id = ? ";
+        $borrar = $this->connect()->query($sql);
+        $borrar->execute([$id]);
+        if ($borrar) {
+            return "La Biografia se ha eliminado";
+        } else {
+            return "Error al Eliminar la Biografia";
+        }
+    }
 
+    public function listaBio()
+    {
+        try {
+            $sql = "SELECT * FROM biografia";
+            $mostrar = $this->connect()->query($sql);
+            return $mostrar->fetchAll();
+        } catch (\Throwable $th) {
+            return array(0 => $th);
+        }
+    }
+
+    public function updateBiografia($nombreArtista, $urlImagenBio,$biografia, $id)
+    {
+        try {
+            $sql = "UPDATE biografia SET nombre_artista= ? ,url_imagen= ?, biografia = ?, WHERE biografia.id = ?"; 
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$nombreArtista, $urlImagenBio,$biografia, $id]);
+            if ($stmt) {
+                return "Actualizado Correctamente";
+            } else {
+                return 'Error al Actualizar';
+            }
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    public function insertarEvento($tituloEvento, $detalle)
+    {
+        try {
+            $sql = "INSERT INTO 'evento'('titulo_evento','eventos')VALUES (?,?)";
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$tituloEvento, $detalle]);
+            return "Se agrego un nuevo Detalle";
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
+    public function eliminarEvento($id)
+    {
+        $sql = "DELETE FROM `evento` WHERE evento.id = ? ";
+        $delete = $this->connect()->query($sql);
+        $delete->execute([$id]);
+        if ($delete) {
+            return "El Evento se ha Eliminado";
+        } else {
+            return "Error al Eliminar el Evento";
+        }
+    }
+
+    public function listadoEvento()
+    {
+        try {
+            $sql = "SELECT * FROM evento";
+            $mostrar = $this->connect()->query($sql);
+            return $mostrar->fetchAll();
+        } catch (\Throwable $th) {
+            return array(0 => $th);
+        }
+    }
+
+    public function updateEvento($tituloEvento, $detalle, $id)
+    {
+        try {
+            $sql = "UPDATE evento SET titulo_evento= ? ,detalles= ? WHERE evento.id = ?"; 
+            $stmt = $this->connect()->query($sql);
+            $stmt->execute([$tituloEvento, $detalle, $id]);
+            if ($stmt) {
+                return "Actualizado Correctamente";
+            } else {
+                return 'No se pudo Actualizar, revise de nuevo';
+            }
+        } catch (\Throwable $th) {
+            return $th;
         }
 
-        public function listaBio(){
-            try {
-                $sql = "SELECT * FROM biografia";
-                $mostrar = $this->connect()->query($sql);
-                return $mostrar->fetchAll();
-            } catch (\Throwable $th) {
-                return array(0 => $th);
-            }
-        }
-
+    }
 }
