@@ -17,7 +17,7 @@ las canciones mas escuchadas asi como estar al tanto de los eventos del momento,
 Equipo que conforma este proyecto
 
 * Edwin Alberto Orellana Rosales OR201557
-* Edwin Alberto Orellana Rosales OR201557
+* Carlos Adonis Rosales Jovel RJ201339
 * Fernando Antonio González Merlos GM180149
 * Xiomara Beatriz Orellana Rojas OR202055
 * Carlos Javier Castro Arevalo CA200764
