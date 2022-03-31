@@ -132,7 +132,7 @@ class AdministracionModel extends DBC
     {
         try {
             $sql = "INSERT INTO `biografia`(`nombre_artista`, `url_imagen`, `biografia`) VALUES (?,?,?)";
-            $stmt = $this->connect()->query($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$nombreArtista, $urlImagenBio, $biografia]);
             return "Se agrego una nueva Biografia";
         } catch (\Throwable $th) {
@@ -143,7 +143,7 @@ class AdministracionModel extends DBC
     public function eliminarBio($id)
     {
         $sql = "DELETE FROM `biografia` WHERE biografia.id = ? ";
-        $borrar = $this->connect()->query($sql);
+        $borrar = $this->connect()->prepare($sql);
         $borrar->execute([$id]);
         if ($borrar) {
             return "La Biografia se ha eliminado";
@@ -167,7 +167,7 @@ class AdministracionModel extends DBC
     {
         try {
             $sql = "UPDATE biografia SET nombre_artista= ? ,url_imagen= ?, biografia = ?, WHERE biografia.id = ?"; 
-            $stmt = $this->connect()->query($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$nombreArtista, $urlImagenBio,$biografia, $id]);
             if ($stmt) {
                 return "Actualizado Correctamente";
@@ -181,13 +181,13 @@ class AdministracionModel extends DBC
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////
-    public function insertarEvento($tituloEvento, $detalle)
+    public function insertarEvento($tituloEvento, $detalles)
     {
         try {
-            $sql = "INSERT INTO 'evento'('titulo_evento','eventos')VALUES (?,?)";
-            $stmt = $this->connect()->query($sql);
-            $stmt->execute([$tituloEvento, $detalle]);
-            return "Se agrego un nuevo Detalle";
+            $sql = "INSERT INTO `evento`(`titulo_evento`, `detalles`) VALUES (?,?)";
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$tituloEvento, $detalles]);
+            return "Se ha publicado un nuevo evento";
         } catch (\Throwable $th) {
             return $th;
         }
@@ -196,7 +196,7 @@ class AdministracionModel extends DBC
     public function eliminarEvento($id)
     {
         $sql = "DELETE FROM `evento` WHERE evento.id = ? ";
-        $delete = $this->connect()->query($sql);
+        $delete = $this->connect()->prepare($sql);
         $delete->execute([$id]);
         if ($delete) {
             return "El Evento se ha Eliminado";
@@ -220,7 +220,7 @@ class AdministracionModel extends DBC
     {
         try {
             $sql = "UPDATE evento SET titulo_evento= ? ,detalles= ? WHERE evento.id = ?"; 
-            $stmt = $this->connect()->query($sql);
+            $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$tituloEvento, $detalle, $id]);
             if ($stmt) {
                 return "Actualizado Correctamente";

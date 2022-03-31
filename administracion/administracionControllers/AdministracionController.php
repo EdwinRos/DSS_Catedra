@@ -22,6 +22,16 @@ class AdministracionController extends AdministracionModel
         return $this->eliminarProgramaRadio($_POST['id']);
     }
 
+    public function actualizarEvento(){
+        return $this->updateEvento($_POST['tituloEvento'],$_POST['detalleEvento'],$_POST['id']);
+    }
+
+    public function eventoEliminar(){
+        return $this->eliminarEvento($_POST['id']);
+    }
+
+    
+
 }
 
 $controller = new AdministracionController();
@@ -39,5 +49,13 @@ switch ($action) {
     case 'Eliminar Programa':
         $s = $controller->eliminarPrograma();
         header('LOCATION: ../administracionViews/programas.php?mensajes=' . $s);
+        break;
+    case 'eliminar evento':
+        $s = $controller->eventoEliminar();
+        header('Location: ../administracionViews/eventos.php?mensajes='.$s);
+        break;
+        case 'Actualizar Evento':
+        $s = $controller->actualizarEvento();
+        header('Location: ../administracionViews/eventos.php?mensajes='.$s);
         break;
     }

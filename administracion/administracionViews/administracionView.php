@@ -58,4 +58,34 @@ class administracionView extends AdministracionModel
         echo $result['error'];
         echo "</div>";
     }
+
+
+    public function registrarEvento(){
+        $result = $this->insertarEvento($_POST['tituloEvento'],$_POST['detalleEvento']);
+        
+        $mensaje = <<< MENSAJE
+        <div class='alert alert-secondary mt-3'>
+            $result
+        </div>
+        MENSAJE;
+
+        echo $mensaje;
+    }
+
+    public function listarEventos(){
+        $results = $this->listadoEvento();
+        echo "<ul class='list-group'>"; 
+        if(count($results) > 0){
+          foreach ($results as $eventos) {
+            # code...
+             echo "<li>". $eventos['titulo_evento'] ."<a href='eventosDetalles.php?id=".$eventos['id']."&&titulo_evento=".$eventos['titulo_evento']."&&detalles=".$eventos['detalles']."' class='btn btn-outline-primary'>Ver</a>   <br> ". $eventos ['detalles']."   </li>"; 
+          }
+        }else{
+            echo "<li class='list-group-item'>Aun no se han publicado eventos !</li>";
+        }
+        echo "</ul>"; 
+    }
+
 }
+
+
