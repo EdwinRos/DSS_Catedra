@@ -59,7 +59,7 @@ class administracionView extends AdministracionModel
         echo "</div>";
     }
 
-
+////////////////////////////////////////////////////////////////
     public function registrarEvento(){
         $result = $this->insertarEvento($_POST['tituloEvento'],$_POST['detalleEvento']);
         
@@ -86,6 +86,36 @@ class administracionView extends AdministracionModel
         echo "</ul>"; 
     }
 
+    /////////////////////////////////////////////////////////////////
+public function registrarBiografia(){
+    $result = $this->insertarBio($_POST['nombre_artista'],$_POST['url_imagen'],$_POST['biografia']);
+    $mensaje =
+        <<< MENSAJE
+    <div class='alert alert-secondary mt-3'>
+    $result
+</div>
+MENSAJE;
+
+        echo $mensaje;
+
+}
+
+
+public function listarBiografia(){
+    $results = $this->listaBio();
+    echo "<ul class='list-group'>"; 
+    if(count($results) > 0){
+        foreach($results as $biografia){
+            echo "<li>". $biografia['nombre_artista']."<a href='biografiaDetalles.php?id=".$biografia['id']."&&nombre_artista=".$biografia['nombre_artista']."&&url_imagen=".$biografia['url_imagen']."&&biografia=".$biografia['biografia']."' class='btn btn-outline-primary'>Ver</a> 
+            <br> " . $biografia ['biografia']." </li>";
+        }
+    }else{
+        echo "<li class='list-group-item'>Aun no se han publicado Biografias !</li>";
+    }
+    echo "</ul>"; 
+
+
+}
 }
 
 

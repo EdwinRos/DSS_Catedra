@@ -166,7 +166,7 @@ class AdministracionModel extends DBC
     public function updateBiografia($nombreArtista, $urlImagenBio,$biografia, $id)
     {
         try {
-            $sql = "UPDATE biografia SET nombre_artista= ? ,url_imagen= ?, biografia = ?, WHERE biografia.id = ?"; 
+            $sql = "UPDATE `biografia` SET `nombre_artista`= ? ,`url_imagen`= ?,`biografia`= ? WHERE id = ?"; 
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$nombreArtista, $urlImagenBio,$biografia, $id]);
             if ($stmt) {
