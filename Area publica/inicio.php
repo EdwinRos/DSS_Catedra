@@ -42,11 +42,9 @@
     </div>
   </nav>
 
-<h1 class="cancionesmes">Canciones mas escuchadas globalmente</h1>
+<h1 class="cancionesmes">RADIO - DSS</h1>
 <br>  
-<br>
-<br>
-<div class="container w-75">
+<div class="container navbar-light bg-light">
        
           <div class="card h-100">
             <img src="img/banner.jpg" class="card-img-top" alt="...">
@@ -122,14 +120,13 @@
 <a href="top_semanal.php">
     <button type="button" class="btn btn-primary">Ver más Tops</button>
     </a>
-
-<br>
-<br>
-<br>
-<br>
-<br>
+    </div>
 </div>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 

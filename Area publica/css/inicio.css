@@ -38,3 +38,8 @@ h1 {
         height: 30%;
         padding: 1%;
 }
+
+.text_banner {
+    text-align: center;
+    font-size: 17px;
+}
