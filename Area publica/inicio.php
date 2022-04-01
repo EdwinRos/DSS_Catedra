@@ -11,34 +11,36 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">RADIO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <a class="nav-link" href="inicio.php">Inicio</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="biografias.php">Biografias</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="programas.php">Programas</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="top_semanal.php">Top semanal</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="eventos.php">Eventos</a>
-              </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Reproductor</a>
-            </li>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"> <img src="https://th.bing.com/th/id/R.cc9b7fdf640859ca160c0ada44edb726?rik=bb4HOo%2bT8F2cDQ&riu=http%3a%2f%2fwww.udb.edu.sv%2fboletin_biblioteca%2f2019%2foct%2fimg%2flogo_udb.png&ehk=2oVpcv4AyzNV8oTcoejYqOgJNvl2075N%2bS6gT5S9dPM%3d&risl=&pid=ImgRaw&r=0" height="20" height="20" alt=""> RADIO
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="inicio.php">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="biografias.php">Biografias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="programas.php">Programas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="top_semanal.php">Top semanal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="eventos.php">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reproductor</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 <h1 class="cancionesmes">Canciones mas escuchadas globalmente</h1>
 <br>  
