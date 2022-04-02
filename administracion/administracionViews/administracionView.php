@@ -78,13 +78,15 @@ class administracionView extends AdministracionModel
         if(count($results) > 0){
           foreach ($results as $eventos) {
             # code...
-             echo "<li>". $eventos['titulo_evento'] ."<a href='eventosDetalles.php?id=".$eventos['id']."&&titulo_evento=".$eventos['titulo_evento']."&&detalles=".$eventos['detalles']."' class='btn btn-outline-primary'>Ver</a>   <br> ". $eventos ['detalles']."   </li>"; 
+             echo "<li class='list-group-item pt-3 pb-5'><b> Titulo Evento: </b><br>". $eventos['titulo_evento'] ."<a href='eventosDetalles.php?id=".$eventos['id']."&&titulo_evento=".$eventos['titulo_evento']."&&detalles=".$eventos['detalles']."' class='btn btn-outline-success float-end'>Ver</a>   <br><b>Detalles del Evento: </b><br> ". $eventos ['detalles']."   </li>"; 
           }
         }else{
             echo "<li class='list-group-item'>Aun no se han publicado eventos !</li>";
         }
-        echo "</ul>"; 
+        echo "</ul class='list-group'>"; 
     }
+
+
 
     /////////////////////////////////////////////////////////////////
 public function registrarBiografia(){
@@ -106,14 +108,23 @@ public function listarBiografia(){
     echo "<ul class='list-group'>"; 
     if(count($results) > 0){
         foreach($results as $biografia){
-            echo "<li>". $biografia['nombre_artista']."<a href='biografiaDetalles.php?id=".$biografia['id']."&&nombre_artista=".$biografia['nombre_artista']."&&url_imagen=".$biografia['url_imagen']."&&biografia=".$biografia['biografia']."' class='btn btn-outline-primary'>Ver</a> 
-            <br> " . $biografia ['biografia']." </li>";
+            echo "<li class='list-group-item pt-3 pb-5'><b>Nombre del Artista: </b><br>". $biografia['nombre_artista']."<a href='biografiaDetalles.php?id=".$biografia['id']."&&nombre_artista=".$biografia['nombre_artista']."&&url_imagen=".$biografia['url_imagen']."&&biografia=".$biografia['biografia']."'class='btn btn-outline-success float-end'>Ver</a> 
+            <br> <b>Biografia: </b><br>" . $biografia ['biografia']." </li>";
         }
     }else{
         echo "<li class='list-group-item'>Aun no se han publicado Biografias !</li>";
     }
     echo "</ul>"; 
 
+    /*       foreach ($results as $eventos) {
+            # code...
+             echo "<li class='list-group-item pt-3 pb-5'><b> Titulo Evento: </b><br>". $eventos['titulo_evento'] ."<a href='eventosDetalles.php?id=".$eventos['id']."&&titulo_evento=".$eventos['titulo_evento']."&&detalles=".$eventos['detalles']."' class='btn btn-outline-success float-end'>Ver</a>   <br><b>Detalles del Evento: </b><br> ". $eventos ['detalles']."   </li>"; 
+          }
+        }else{
+            echo "<li class='list-group-item'>Aun no se han publicado eventos !</li>";
+        }
+        echo "</ul class='list-group'>"; 
+    } */
 
 }
 }
