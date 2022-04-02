@@ -116,15 +116,6 @@ public function listarBiografia(){
     }
     echo "</ul>"; 
 
-    /*       foreach ($results as $eventos) {
-            # code...
-             echo "<li class='list-group-item pt-3 pb-5'><b> Titulo Evento: </b><br>". $eventos['titulo_evento'] ."<a href='eventosDetalles.php?id=".$eventos['id']."&&titulo_evento=".$eventos['titulo_evento']."&&detalles=".$eventos['detalles']."' class='btn btn-outline-success float-end'>Ver</a>   <br><b>Detalles del Evento: </b><br> ". $eventos ['detalles']."   </li>"; 
-          }
-        }else{
-            echo "<li class='list-group-item'>Aun no se han publicado eventos !</li>";
-        }
-        echo "</ul class='list-group'>"; 
-    } */
 
 }
 }
