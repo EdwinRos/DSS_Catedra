@@ -15,7 +15,7 @@ $programas = "SELECT * FROM programa ";
   <title>Programas</title>
   <style>
     .masthead {
-      height: 100vh;
+      height: 40vh;
       min-height: 500px;
       background-image: url('https://img.freepik.com/foto-gratis/casete-vintage-minimalista-vista-frontal_23-2148695292.jpg');
       background-size: cover;
@@ -26,7 +26,7 @@ $programas = "SELECT * FROM programa ";
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"> <img src="https://th.bing.com/th/id/R.cc9b7fdf640859ca160c0ada44edb726?rik=bb4HOo%2bT8F2cDQ&riu=http%3a%2f%2fwww.udb.edu.sv%2fboletin_biblioteca%2f2019%2foct%2fimg%2flogo_udb.png&ehk=2oVpcv4AyzNV8oTcoejYqOgJNvl2075N%2bS6gT5S9dPM%3d&risl=&pid=ImgRaw&r=0" height="20" height="20" alt=""> RADIO
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@ $programas = "SELECT * FROM programa ";
           <a class="nav-link" href="programas.php">Programas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="top_semanal.php">Top semanal</a>
+          <a class="nav-link" href="musica.php">Musica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="eventos.php">Eventos</a>

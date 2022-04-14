@@ -35,7 +35,7 @@
           <a class="nav-link" href="programas.php">Programas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="top_semanal.php">Top semanal</a>
+          <a class="nav-link" href="musica.php">Musica</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="eventos.php">Eventos</a>

@@ -68,6 +68,68 @@ class AdministracionModel extends DBC
         }
         return $respuesta;
     }
+
+
+    protected function commitCancionEscuchada($cancion)
+    {
+        try {
+            //si cancion ya existe en bd solo se sube su contador si no se ingresa
+            $sql = "SELECT `id`, `titulo`,`conteo` FROM `cancion` WHERE titulo = ?";
+            $sqlUpdate = "UPDATE `cancion` SET conteo = ? WHERE id = ?";
+            $sqlInsert = "INSERT INTO `cancion`(`titulo`, `conteo`) VALUES (? , 1 )";
+
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute([$cancion]);
+            $result = $stmt->fetch();
+            if ($result != null) {
+                $conteoActual = $result['conteo'] + 1;
+                $updateConteo = $this->connect()->prepare($sqlUpdate);
+                $updateConteo->execute([$conteoActual, $result['id']]);
+            } else {
+                $nuevoRegistro = $this->connect()->prepare($sqlInsert);
+                $nuevoRegistro->execute([$cancion]);
+            }
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
+    protected function listaDecancionDelTop()
+    {
+        try {
+            $sql = "SELECT `titulo`, `conteo` FROM `cancion` ORDER BY `cancion`.`conteo` DESC LIMIT 0 ,10";
+            $stmt = $this->connect()->query($sql);
+            return $stmt->fetchAll();
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
+
+    protected function moverATop($cancionesDelTop)
+    {
+        ini_set('display_errors', 'Off');
+        $log = array();
+        try {
+            $source = '../../upploads/Lista/listaSemana/';
+            $target = '../../upploads/Lista/topSemana/';
+            foreach (glob($target . '*') as $file) {
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+            foreach ($cancionesDelTop as $cancion) {
+                if (!copy($source . $cancion , $target . $cancion)) {
+                    $log[] = 'La cancion  no se encuentra, puede hacerlo manualmente';
+                }
+            }
+
+            return $log;
+        } catch (\Throwable $th) {
+            error_reporting(E_ERROR | E_PARSE);
+        }
+    }
+
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     protected function publicarProgramaBD($titulo, $diasEmision, $horaEmision, $dj, $url)
     {
@@ -125,7 +187,7 @@ class AdministracionModel extends DBC
         }
     }
 
-    
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function insertarBio($nombreArtista, $urlImagenBio, $biografia)
@@ -163,12 +225,12 @@ class AdministracionModel extends DBC
         }
     }
 
-    public function updateBiografia($nombreArtista, $urlImagenBio,$biografia, $id)
+    public function updateBiografia($nombreArtista, $urlImagenBio, $biografia, $id)
     {
         try {
-            $sql = "UPDATE `biografia` SET `nombre_artista`= ? ,`url_imagen`= ?,`biografia`= ? WHERE id = ?"; 
+            $sql = "UPDATE `biografia` SET `nombre_artista`= ? ,`url_imagen`= ?,`biografia`= ? WHERE id = ?";
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$nombreArtista, $urlImagenBio,$biografia, $id]);
+            $stmt->execute([$nombreArtista, $urlImagenBio, $biografia, $id]);
             if ($stmt) {
                 return "Actualizado Correctamente";
             } else {
@@ -219,7 +281,7 @@ class AdministracionModel extends DBC
     public function updateEvento($tituloEvento, $detalle, $id)
     {
         try {
-            $sql = "UPDATE evento SET titulo_evento= ? ,detalles= ? WHERE evento.id = ?"; 
+            $sql = "UPDATE evento SET titulo_evento= ? ,detalles= ? WHERE evento.id = ?";
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$tituloEvento, $detalle, $id]);
             if ($stmt) {
@@ -230,6 +292,5 @@ class AdministracionModel extends DBC
         } catch (\Throwable $th) {
             return $th;
         }
-
     }
 }

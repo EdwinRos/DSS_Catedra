@@ -39,7 +39,7 @@ include 'administracionView.php';
                 <p class="lead">Se detalla la lista actual de canciones de la semana</p>
                 <?php
                 $administracionCancionesActuales = new administracionView();
-                $administracionCancionesActuales->cargarCanciones('listaSemana/');
+                $administracionCancionesActuales->cargarCanciones('listaSemana');
                 ?>
             </div>
         </div>
