@@ -51,6 +51,26 @@ class AdministracionModel extends DBC
         return $validationLog;
     }
 
+    protected function subidaManualAlTop()
+    {
+        $numeroDeArchivos = $_POST['Narchivos'];
+        $target_dir = "../../upploads/Lista/topSemana/";
+        $estado = 0;
+        for ($i = 0; $i <= $numeroDeArchivos - 1; $i++) {
+
+            $targetFile = $target_dir . basename($_FILES['cancion' . $i]['name']);
+            $cancionTipe = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+            if (file_exists($targetFile) || $cancionTipe != 'mp3' && $cancionTipe != 'flac') {
+                $estado ++;
+            }else{
+                move_uploaded_file($_FILES['cancion'.$i]['name'], $targetFile);
+            }
+            
+        }
+        return ($estado > 0) ? false : true;
+    }
+
 
     protected function obtenerCancionesActualesSemana($lista)
     {
@@ -118,8 +138,8 @@ class AdministracionModel extends DBC
                 }
             }
             foreach ($cancionesDelTop as $cancion) {
-                if (!copy($source . $cancion , $target . $cancion)) {
-                    $log[] = 'La cancion  no se encuentra, puede hacerlo manualmente';
+                if (!copy($source . $cancion, $target . $cancion)) {
+                    $log[] = 'La cancion ' . $cancion . ' no se encuentra, puede hacerlo manualmente';
                 }
             }
 

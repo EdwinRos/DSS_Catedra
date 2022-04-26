@@ -19,6 +19,18 @@ include 'administracionView.php';
     <div class="container">
         <div class="row">
             <h1 class="display-4">Lista de canciones en el top</h1>
+            <?php
+            if (isset($_GET['m'])) {
+                $mensaje = <<< MDR
+                    <div class="alert alert-warning" role="alert">
+                    Uno o varios de los archivos no se han subido, puede que estos
+                    estuviesen repetidos o no fueran del formato aceptado(mp3, flac)
+                    </div>
+                    MDR;
+
+                echo $mensaje;
+            }
+            ?>
         </div>
         <hr>
         <div class="row">

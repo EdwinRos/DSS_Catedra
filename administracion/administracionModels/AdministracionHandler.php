@@ -25,21 +25,21 @@ class AdministracionHandler extends AdministracionModel
         echo $result;
     }
 
-    
-
 }
-class AdministracionViewHandler extends administracionView {
+class AdministracionViewHandler extends administracionView
+{
 
-    public function dataActu(){
+    public function dataActu()
+    {
         $this->actualizarLista();
     }
-
 }
 
 
 $dataUpdate = new AdministracionViewHandler();
 $handler = new AdministracionHandler();
 $action = $_GET['task'];
+
 
 switch ($action) {
     case 'deleteSemana':

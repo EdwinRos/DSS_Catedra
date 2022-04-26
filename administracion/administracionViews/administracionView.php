@@ -21,7 +21,7 @@ class administracionView extends AdministracionModel
         if ($lista == 'listaSemana') {
             if (count($results) > 2) {
                 for ($i = 2; $i < count($results); $i++) {
-                    echo "<li class='list-group-item pt-3 pb-5'>$results[$i] <a href='confirmaciones.php?lista=$lista&&cancion=$results[$i]' class='btn btn-outline-info float-end'>Detalles</a> </li>";
+                    echo "<li class='list-group-item pt-3 pb-5'>$results[$i] <a href='confirmaciones.php?lista=$lista/&&cancion=$results[$i]' class='btn btn-outline-info float-end'>Detalles</a> </li>";
                 }
             } else {
                 echo "<li class='list-group-item'>Aun no se ha subido una cancion!</li>";
@@ -66,17 +66,14 @@ class administracionView extends AdministracionModel
 
             if (count($results) != 0) {
                 echo "<div class='alert alert-warning mt-3'>";
-                foreach ($results as $key) {
-                    echo $key . '</br>';
+                echo "<form method='post' enctype='multipart/form-data' action='../administracionModels/manualUploadTop.php'>";
+                foreach ($results as $key => $value) {
+                    echo $value . '</br>';            
                 }
+                echo "<input type='file' class='form-control' name='file[]' multiple  required />";
+                echo "<input type='submit' class='btn btn-primary mt-3' value='subir' />";
                 echo "</div>";
-                $form = <<< FR
-            <form method='post' action='homeAdministracion.php' enctype='multipart/form-data'>
-            <input type='file' class='form-control' name='cancion' id='cancion' required />
-            <input type='submit' class='btn btn-primary mt-3' value='subir' />
-            </form>
-            FR;
-                echo $form;
+                echo "</form>";
             }
             $alert = <<< SUC
             <div class='alert alert-success mt-3'>
