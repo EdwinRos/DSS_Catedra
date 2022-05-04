@@ -39,9 +39,6 @@ $sql = "SELECT `titulo`, `conteo` FROM `cancion` ORDER BY `cancion`.`conteo` DES
         <li class="nav-item">
           <a class="nav-link" href="eventos.php">Eventos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Reproductor</a>
-        </li>
       </ul>
     </div>
   </nav>

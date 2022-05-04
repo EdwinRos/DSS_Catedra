@@ -52,7 +52,7 @@ include 'administracionView.php';
                                 <a href="top.php" class="btn-close" aria-label="Close"></a>
                             </div>
                             <div class="modal-body">
-                                espere...
+                                <button onclick="ejecActuliazar()" type="button" class="btn btn-success">Iniciar actulizacion</button>
                                 <!-- Aqui vamos a poner la logica  -->
                                 <span id="log">
 
@@ -69,20 +69,23 @@ include 'administracionView.php';
             <div class="col-md">
                 <h1 class="display-6">Canciones subidas a la radio en la lista top</h1>
                 <?php
-                $viewModel->cargarCanciones('topSemana');
+                $cargarTop = new administracionView();
+                $cargarTop->cargarCanciones('topSemana');
                 ?>
             </div>
         </div>
     </div>
     <script>
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("log").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../administracionModels/AdministracionHandler.php?task=actuLista", true);
-        xmlhttp.send();
+        const ejecActuliazar = () => {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("log").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "../administracionModels/AdministracionHandler.php?task=actuLista", true);
+            xmlhttp.send();
+        }
     </script>
 </body>
 

@@ -40,9 +40,6 @@
         <li class="nav-item">
           <a class="nav-link" href="eventos.php">Eventos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Reproductor</a>
-        </li>
       </ul>
     </div>
   </nav>
@@ -69,7 +66,7 @@
           <tr>  
           <td><?php echo $row["id"]; ?></td>          
             <td><?php echo $row["nombre_artista"]; ?></td>
-            <td><?php echo $row["url_imagen"]; ?></td>
+            <td><img src="<?php echo $row["url_imagen"]; ?>" alt="" with="40" height="40"></td>
             <td><?php echo $row["biografia"]; ?></td>           
             <?php } mysqli_free_result($resultado); ?>
           </tr>     
@@ -84,8 +81,8 @@
 <br>  
 <br>
 <br>
-
-<section class="progra">
+<br>
+<!-- <section class="progra">
 <div class="container w-75">
           <h1>Biografias Staff</h1>         
       <table class="table">
@@ -111,7 +108,7 @@
           </tr>     
         </tbody>
       </table>
-          </div>
+          </div> -->
 
    
     </section><br><br><br><br><br><br><br><br><br><br><br><br>

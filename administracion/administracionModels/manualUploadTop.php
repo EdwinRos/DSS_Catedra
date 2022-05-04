@@ -4,7 +4,6 @@
 $countfiles = count($_FILES['file']['name']);
 $url = "../../upploads/Lista/topSemana/";
 $estado = 0;
-// Looping all files
 for ($i = 0; $i < $countfiles; $i++) {
     $filename = $_FILES['file']['name'][$i];
     $cancionTipe = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
